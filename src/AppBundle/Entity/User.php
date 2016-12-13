@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -19,16 +20,23 @@ class User
 
     /**
      * @ORM\Column(type="string", length=32)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email
      */
     protected $email;
 
     /**
      * @ORM\Column(type="string", length=32)
+     *
+     * @Assert\NotBlank()
      */
     protected $password;
 
     /**
      * @ORM\Column(type="string", length=32)
+     *
+     * @Assert\NotBlank()
      */
     protected $name;
 
