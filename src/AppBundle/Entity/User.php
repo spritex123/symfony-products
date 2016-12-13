@@ -43,7 +43,7 @@ class User
     protected $updated;
 
     /**
-     * @ORM\Column(type="boolean", length=32)
+     * @ORM\Column(type="boolean")
      */
     protected $enabled;
 
