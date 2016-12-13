@@ -28,7 +28,7 @@ class User
     protected $email;
 
     /**
-     * @ORM\Column(type = "string", length=255)
+     * @ORM\Column(type = "string", length = 255)
      *
      * @Assert\NotBlank()
      * @Assert\Length(max = 255, maxMessage = "Max Length 255")
