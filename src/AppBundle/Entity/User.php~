@@ -19,44 +19,49 @@ class User
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type = "string", length = 255)
      *
      * @Assert\NotBlank()
      * @Assert\Email
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
      */
     protected $email;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type = "string", length=255)
      *
      * @Assert\NotBlank()
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
      */
     protected $password;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type = "string", length = 255)
      *
      * @Assert\NotBlank()
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type = "datetime")
      */
     protected $created;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type = "datetime")
      */
     protected $updated;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type = "boolean")
      */
     protected $enabled;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type = "string", length = 255)
+     *
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
      */
     protected $token;
 
