@@ -21,25 +21,25 @@ class User
     /**
      * @ORM\Column(type = "string", length = 255)
      *
-     * @Assert\NotBlank()
-     * @Assert\Email
-     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
+     * @Assert\NotBlank(groups = {"registration", "authorization"})
+     * @Assert\Email(groups = {"registration", "authorization"})
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255", groups = {"registration", "authorization"})
      */
     protected $email;
 
     /**
      * @ORM\Column(type = "string", length = 255)
      *
-     * @Assert\NotBlank()
-     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
+     * @Assert\NotBlank(groups = {"registration", "authorization"})
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255", groups = {"registration", "authorization"})
      */
     protected $password;
 
     /**
      * @ORM\Column(type = "string", length = 255)
      *
-     * @Assert\NotBlank()
-     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
+     * @Assert\NotBlank(groups = {"registration"})
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255", groups = {"registration"})
      */
     protected $name;
 
