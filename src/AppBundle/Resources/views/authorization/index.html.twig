@@ -1,0 +1,12 @@
+{% extends 'AppBundle:Default:index.html.twig' %}
+
+{% block body %}
+
+<h3>Authorization</h3>
+
+<form action="{{ path('authorization') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <input type="submit" value="Sing in">
+</form>
+
+{% endblock %}
