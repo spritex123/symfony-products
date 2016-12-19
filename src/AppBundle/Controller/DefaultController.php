@@ -15,4 +15,20 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:index.html.twig');
     }
+
+    /**
+     * @Route("/secret", name="secret")
+     */
+    public function secretAction(Request $request)
+    {
+        return $this->render('AppBundle:Default:secret.html.twig');
+    }
+
+    /**
+     * @Route("/error403", name="error403")
+     */
+    public function error403Action(Request $request)
+    {
+        return $this->render('AppBundle:Default:error403.html.twig');
+    }
 }

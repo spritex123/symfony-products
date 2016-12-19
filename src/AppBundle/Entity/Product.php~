@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name = "product")
+ */
+class Product
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type = "integer")
+     * @ORM\GeneratedValue(strategy = "AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type = "string", length = 255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type = "string", length = 255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max = 255, maxMessage = "Max Length 255")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type = "string", length = 255)
+     */
+    protected $thumbnail;
+
+    /**
+     * @ORM\Column(type = "decimal", scale = 2)
+     *
+     * @Assert\NotBlank()
+     */
+    protected $price;
+
+    /**
+     * @ORM\Column(type = "string", length = 255)
+     */
+    protected $user;
+}

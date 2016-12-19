@@ -1,6 +1,6 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
+#    - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AppBundle/Resources/config/security.yml" }
 
@@ -65,3 +65,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Assetic Configuration
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~

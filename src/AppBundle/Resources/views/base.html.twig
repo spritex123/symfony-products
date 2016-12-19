@@ -3,13 +3,44 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}symfony-products{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheets %}
+        {% stylesheets
+            'bundles/app/css/reset.css'
+            'bundles/app/bootstrap/css/bootstrap.min.css'
+            'bundles/app/css/my.css'
+            filter='cssrewrite' output='css/compiled/app.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
 </head>
 <body>
-    <h1>BASE</h1>
-    {% block menu %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% block javascript %}{% endblock %}
+
+    <div class="container red">
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 blue">
+                <h1>BASE</h1>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <b>{{ app.user }}</b>
+                    <a href="{{ path('logout') }}">Logout</a>
+                {% endif %}
+
+            </div>
+            {% block menu %}{% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
+    {% block javascripts %}
+        {% javascripts
+            'bundles/app/bootstrap/js/bootstrap.min.js'
+            output='js/compiled/app.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 
 </body>
 </html>
